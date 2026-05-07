@@ -35,6 +35,7 @@ export const Hero = () => {
       flexDirection: 'column' as const,
       alignItems: 'center',
       justifyContent: 'center',
+      minHeight: '100vh',
     },
     mainLayout: {
       display: 'flex',
@@ -46,7 +47,7 @@ export const Hero = () => {
     title: {
       fontFamily: 'var(--font-display)',
       fontWeight: 800,
-      fontSize: 'clamp(36px, 10vw, 150px)',
+      fontSize: 'clamp(48px, 14vw, 150px)',
       lineHeight: 0.8,
       letterSpacing: '-0.06em',
       color: C.blue,
@@ -95,13 +96,13 @@ export const Hero = () => {
             "assets/orbit/hero6.jpg",
           ]}
           shape="ellipse"
-          radiusX={500}
-          radiusY={200}
+          radiusX={650}
+          radiusY={280}
           rotation={-5}
           duration={30}
-          itemSize={100}
+          itemSize={140}
           responsive={true}
-          aspectRatio="2.3 / 1"
+          aspectRatio="1.8 / 1"
           centerContent={
             <div style={{ transform: 'translateY(-10%)' }}>
               <h1 style={{ ...styles.title, marginBottom: 0 }}>
