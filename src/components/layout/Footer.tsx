@@ -6,14 +6,10 @@ export const Footer = () => {
     footer: {
       background: C.black,
       color: C.white,
-      padding: '180px 5% 60px',
       borderTop: '1px solid rgba(255,255,255,0.1)',
     },
     top: {
-      display: 'flex',
-      justifyContent: 'space-between',
-      alignItems: 'flex-start',
-      marginBottom: '140px',
+      /* replaced by Tailwind */
     },
     logo: {
       fontFamily: 'var(--font-display)',
@@ -24,9 +20,7 @@ export const Footer = () => {
       lineHeight: 0.75,
     },
     grid: {
-      display: 'grid',
-      gridTemplateColumns: 'repeat(3, 1fr)',
-      gap: '120px',
+      /* replaced by Tailwind */
     },
     colTitle: {
       fontFamily: 'var(--font-sans)',
@@ -52,8 +46,6 @@ export const Footer = () => {
     bottom: {
       borderTop: '1px solid rgba(255,255,255,0.1)',
       paddingTop: '60px',
-      display: 'flex',
-      justifyContent: 'space-between',
       fontFamily: 'var(--font-sans)',
       fontSize: '10px',
       fontWeight: 800,
@@ -64,16 +56,16 @@ export const Footer = () => {
   };
 
   return (
-    <footer style={styles.footer}>
-      <div style={styles.top} className="two-col">
+    <footer className="section-padding" style={styles.footer}>
+      <div className="flex flex-col md:flex-row justify-between items-start mb-20 md:mb-[140px] gap-16 md:gap-0">
         <div style={styles.logo}>
           <img 
-            src="/signinnfoot.jpg" 
+            src="signinnfoot.jpg" 
             alt="Signinn Footer Logo" 
-            style={{ height: '130px', width: 'auto', display: 'block' }} 
+            className="h-16 md:h-[130px] w-auto block"
           />
         </div>
-        <div style={styles.grid}>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-[120px]">
           <div>
             <div style={styles.colTitle}>General</div>
             {['About', 'Services', 'Academy'].map(item => (
@@ -93,7 +85,7 @@ export const Footer = () => {
           </div>
         </div>
       </div>
-      <div style={styles.bottom}>
+      <div style={styles.bottom} className="flex flex-col md:flex-row justify-between gap-6 md:gap-0">
         <div>© 2026 SIGNINN AI AGENCY & ACADEMY</div>
         <div>LEAVE A REQUEST ↗</div>
       </div>

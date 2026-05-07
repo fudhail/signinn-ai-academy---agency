@@ -10,7 +10,8 @@ export const useFadeIn = () => {
       ([entry]) => {
         if (entry.isIntersecting) {
           el.classList.add('visible');
-          observer.unobserve(el);
+        } else {
+          el.classList.remove('visible');
         }
       },
       { threshold: 0.1 }

@@ -21,7 +21,7 @@ export const Academy = () => {
     h2: {
       fontFamily: 'var(--font-display)',
       fontWeight: 800,
-      fontSize: '72px',
+      fontSize: 'clamp(40px, 8vw, 72px)',
       textTransform: 'uppercase' as const,
       color: C.white,
       marginBottom: '100px',
@@ -37,7 +37,7 @@ export const Academy = () => {
     level: {
       fontFamily: 'var(--font-sans)',
       fontWeight: 600,
-      fontSize: '11px',
+      fontSize: 'clamp(8px, 1.5vw, 11px)',
       color: 'rgba(255,255,255,0.6)',
       textTransform: 'uppercase' as const,
       letterSpacing: '0.15em',
@@ -47,7 +47,7 @@ export const Academy = () => {
     title: {
       fontFamily: 'var(--font-display)',
       fontWeight: 800,
-      fontSize: '30px',
+      fontSize: 'clamp(12px, 2.5vw, 30px)',
       lineHeight: 1.0,
       marginBottom: '24px',
       textTransform: 'uppercase' as const,
@@ -57,7 +57,7 @@ export const Academy = () => {
     },
     body: {
       fontFamily: 'var(--font-sans)',
-      fontSize: '14px',
+      fontSize: 'clamp(10px, 2vw, 14px)',
       color: 'rgba(255,255,255,0.8)',
       lineHeight: 1.6,
       marginBottom: '40px',
@@ -73,7 +73,7 @@ export const Academy = () => {
     index: {
       fontFamily: 'var(--font-display)',
       fontWeight: 600,
-      fontSize: '14px',
+      fontSize: 'clamp(10px, 2vw, 14px)',
       color: 'rgba(255,255,255,0.4)',
       marginBottom: '32px',
       letterSpacing: '0.1em',
@@ -96,13 +96,13 @@ export const Academy = () => {
   return (
     <section id="academy" className="section-padding" style={styles.section} ref={ref}>
       <h2 style={styles.h2}>THE ACADEMY</h2>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 border border-white/20">
+      <div className="grid grid-cols-2 lg:grid-cols-4 border border-white/20">
         {courses.map((c, i) => {
           const isLast = i === courses.length - 1;
           return (
             <motion.div 
               key={i} 
-              className={`flex flex-col justify-between p-10 lg:p-14 min-h-[480px] cursor-pointer bg-transparent border-white/20 border-b lg:border-b-0 ${isLast ? '' : 'lg:border-r'} transition-colors duration-300`}
+              className={`flex flex-col justify-between p-6 md:p-10 lg:p-14 min-h-[380px] lg:min-h-[480px] cursor-pointer bg-transparent border-white/20 ${i < 2 ? 'border-b lg:border-b-0' : ''} ${(i % 2 === 0) ? 'border-r' : ''} lg:border-r ${isLast ? 'lg:border-r-0' : ''} transition-colors duration-300`}
               whileHover="hover"
               variants={{
                 hover: { 
@@ -158,7 +158,9 @@ export const Academy = () => {
                   }}
                   whileHover="hover"
                 >
-                  <ArrowDownRight size={80} strokeWidth={1} />
+                  <div className="w-10 h-10 md:w-20 md:h-20 flex items-center justify-center">
+                    <ArrowDownRight className="w-full h-full" strokeWidth={1} />
+                  </div>
                 </motion.div>
               </div>
             </motion.div>

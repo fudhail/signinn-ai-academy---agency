@@ -38,7 +38,7 @@ export const Services = () => {
     h2: {
       fontFamily: 'var(--font-display)',
       fontWeight: 800,
-      fontSize: 'clamp(60px, 8vw, 110px)',
+      fontSize: 'clamp(40px, 8vw, 110px)',
       lineHeight: 0.85,
       textTransform: 'uppercase' as const,
       color: C.blue,
@@ -46,7 +46,7 @@ export const Services = () => {
     },
     headerSub: {
       fontFamily: 'var(--font-sans)',
-      fontSize: '18px',
+      fontSize: 'clamp(15px, 2vw, 18px)',
       color: '#4b5563',
       lineHeight: 1.5,
       fontWeight: 400,
@@ -74,7 +74,7 @@ export const Services = () => {
     cardTitle: {
       fontFamily: 'var(--font-display)',
       fontWeight: 800,
-      fontSize: 'clamp(32px, 4vw, 52px)',
+      fontSize: 'clamp(24px, 4vw, 52px)',
       lineHeight: 0.9,
       margin: '48px 0',
       letterSpacing: '-0.04em',
@@ -93,7 +93,7 @@ export const Services = () => {
     }),
     cardBody: (t: any) => ({
       fontFamily: 'var(--font-sans)',
-      fontSize: '16px',
+      fontSize: 'clamp(14px, 2vw, 16px)',
       lineHeight: 1.6,
       color: t.bg === C.white ? '#4b5563' : t.sub,
       alignSelf: 'center',

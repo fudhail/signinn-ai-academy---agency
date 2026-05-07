@@ -16,7 +16,7 @@ export const Contact = () => {
     h2: {
       fontFamily: 'var(--font-display)',
       fontWeight: 800,
-      fontSize: 'clamp(60px, 8vw, 110px)',
+      fontSize: 'clamp(40px, 8vw, 110px)',
       lineHeight: 0.85,
       color: C.blue,
       textTransform: 'uppercase' as const,
@@ -39,7 +39,7 @@ export const Contact = () => {
       border: '1px solid rgba(0,0,0,0.08)',
       padding: '24px',
       fontFamily: 'var(--font-sans)',
-      fontSize: '14px',
+      fontSize: 'clamp(12px, 2vw, 14px)',
       color: C.black,
       outline: 'none',
       transition: 'border-color 0.3s',

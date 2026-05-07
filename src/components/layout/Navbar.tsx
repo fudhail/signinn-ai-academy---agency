@@ -57,20 +57,7 @@ export const Navbar = () => {
       transition: 'opacity 0.2s',
     },
     button: {
-      background: C.black,
-      color: C.white,
-      borderRadius: '0',
-      padding: '14px 28px',
-      fontFamily: 'var(--font-display)',
-      fontWeight: 600,
-      fontSize: '11px',
-      textTransform: 'uppercase' as const,
-      letterSpacing: '0.15em',
-      border: 'none',
-      cursor: 'pointer',
-      display: 'flex',
-      alignItems: 'center',
-      gap: '8px',
+      /* replaced by Tailwind */
     },
   };
 
@@ -79,9 +66,9 @@ export const Navbar = () => {
       <div style={styles.navInner}>
         <div style={styles.logo}>
           <img 
-            src="/signinnmini.jpg" 
+            src="signinnmini.jpg" 
             alt="Signinn Logo" 
-            style={{ height: '45px', width: 'auto', display: 'block' }} 
+            className="h-8 md:h-[45px] w-auto block"
           />
         </div>
         <div style={styles.links} className="hide-mobile">
@@ -98,7 +85,7 @@ export const Navbar = () => {
           ))}
         </div>
         <button 
-          style={styles.button}
+          className="px-4 py-2 md:px-7 md:py-3.5 text-[10px] md:text-[11px] bg-black text-white font-[var(--font-display)] font-semibold uppercase tracking-[0.15em] flex items-center gap-2 cursor-pointer transition-colors"
           onMouseOver={(e) => (e.currentTarget.style.background = C.blue)}
           onMouseOut={(e) => (e.currentTarget.style.background = C.black)}
         >

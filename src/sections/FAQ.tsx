@@ -24,14 +24,14 @@ const FAQItem = ({ q, a, isOpen, onClick }: { q: string, a: string, isOpen: bool
   
   const itemStyle = { borderBottom: '1px solid #000', padding: '40px 0' };
   const qRowStyle = { display: 'flex', justifyContent: 'space-between', alignItems: 'center', cursor: 'pointer' };
-  const qStyle = { fontFamily: 'var(--font-display)', fontWeight: 800, fontSize: '20px', textTransform: 'uppercase' as const, color: C.black, letterSpacing: '0.05em', paddingRight: '32px' };
+  const qStyle = { fontFamily: 'var(--font-display)', fontWeight: 800, fontSize: 'clamp(16px, 3vw, 20px)', textTransform: 'uppercase' as const, color: C.black, letterSpacing: '0.05em', paddingRight: '32px' };
 
   return (
     <motion.div 
       style={itemStyle}
       initial={{ opacity: 0, y: 40 }}
       whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: '-20%' }}
+      viewport={{ once: false, margin: '-20%' }}
       transition={{ duration: 0.6, ease: [0.23, 1, 0.32, 1] }}
     >
       <div style={qRowStyle} onClick={onClick}>
@@ -60,7 +60,7 @@ const FAQItem = ({ q, a, isOpen, onClick }: { q: string, a: string, isOpen: bool
               style={{
                 fontFamily: 'var(--font-sans)',
                 fontWeight: 400,
-                fontSize: '15px',
+                fontSize: 'clamp(14px, 2vw, 15px)',
                 color: '#4b5563',
                 lineHeight: 1.6,
                 maxWidth: '740px',
@@ -96,7 +96,7 @@ export const FAQ = () => {
   const styles = {
     section: { background: C.white, borderTop: '1px solid #000' },
     inner: { maxWidth: '900px', margin: 'auto' },
-    h2: { fontFamily: 'var(--font-display)', fontWeight: 800, fontSize: 'clamp(48px, 6vw, 64px)', textTransform: 'uppercase' as const, marginBottom: '80px', textAlign: 'center' as const, color: C.blue, letterSpacing: '-0.04em' },
+    h2: { fontFamily: 'var(--font-display)', fontWeight: 800, fontSize: 'clamp(32px, 6vw, 64px)', textTransform: 'uppercase' as const, marginBottom: '80px', textAlign: 'center' as const, color: C.blue, letterSpacing: '-0.04em' },
   };
 
   return (

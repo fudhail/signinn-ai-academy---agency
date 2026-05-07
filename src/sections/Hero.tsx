@@ -30,7 +30,7 @@ export const Hero = () => {
   const styles = {
     section: {
       background: C.white,
-      padding: '10px 5% 10px',
+      padding: '70px 5% 10px',
       display: 'flex',
       flexDirection: 'column' as const,
       alignItems: 'center',
@@ -46,7 +46,7 @@ export const Hero = () => {
     title: {
       fontFamily: 'var(--font-display)',
       fontWeight: 800,
-      fontSize: 'clamp(80px, 16vw, 260px)',
+      fontSize: 'clamp(36px, 10vw, 150px)',
       lineHeight: 0.8,
       letterSpacing: '-0.06em',
       color: C.blue,
@@ -59,7 +59,7 @@ export const Hero = () => {
     },
     leftText: {
       fontFamily: 'var(--font-sans)',
-      fontSize: '16px',
+      fontSize: 'clamp(14px, 2vw, 16px)',
       lineHeight: 1.5,
       maxWidth: '540px',
       color: '#4b5563',
@@ -87,24 +87,25 @@ export const Hero = () => {
       <div style={styles.mainLayout}>
         <OrbitImages
           images={[
-            "/assets/orbit/hero1.jpg",
-            "/assets/orbit/hero2.jpg",
-            "/assets/orbit/hero3.jpg",
-            "/assets/orbit/hero4.jpg",
-            "/assets/orbit/hero5.jpg",
-            "/assets/orbit/hero6.jpg",
+            "assets/orbit/hero1.jpg",
+            "assets/orbit/hero2.jpg",
+            "assets/orbit/hero3.jpg",
+            "assets/orbit/hero4.jpg",
+            "assets/orbit/hero5.jpg",
+            "assets/orbit/hero6.jpg",
           ]}
           shape="ellipse"
-          radiusX={800}
-          radiusY={300}
+          radiusX={500}
+          radiusY={200}
           rotation={-5}
           duration={30}
-          itemSize={160}
+          itemSize={100}
           responsive={true}
+          aspectRatio="2.3 / 1"
           centerContent={
             <div style={{ transform: 'translateY(-10%)' }}>
               <h1 style={{ ...styles.title, marginBottom: 0 }}>
-                <span style={{ color: C.textSecondary }}>LEARN</span><br />
+                <span style={{ color: '#4b5563' }}>LEARN</span><br />
                 <span style={{ color: C.black }}>BUILD</span><br />
                 SCALE
               </h1>

@@ -19,7 +19,7 @@ export const WhySigninn = () => {
     h2: {
       fontFamily: 'var(--font-display)',
       fontWeight: 800,
-      fontSize: 'clamp(48px, 6vw, 64px)',
+      fontSize: 'clamp(32px, 6vw, 64px)',
       color: C.white,
       marginBottom: '100px',
       textTransform: 'uppercase' as const,
@@ -35,14 +35,14 @@ export const WhySigninn = () => {
     num: {
       fontFamily: 'var(--font-display)',
       fontWeight: 600,
-      fontSize: '11px',
+      fontSize: 'clamp(8px, 1.5vw, 11px)',
       color: 'rgba(255,255,255,0.3)',
       letterSpacing: '0.1em',
     },
     title: {
       fontFamily: 'var(--font-display)',
       fontWeight: 800,
-      fontSize: '20px',
+      fontSize: 'clamp(10px, 2.5vw, 20px)',
       color: C.white,
       lineHeight: 1.1,
       marginTop: '24px',
@@ -50,7 +50,7 @@ export const WhySigninn = () => {
     },
     body: {
       fontFamily: 'var(--font-sans)',
-      fontSize: '14px',
+      fontSize: 'clamp(10px, 2vw, 14px)',
       color: 'rgba(255,255,255,0.6)',
       lineHeight: 1.6,
       marginTop: '16px',
@@ -61,11 +61,11 @@ export const WhySigninn = () => {
   return (
     <section className="section-padding" style={styles.section} ref={ref as React.RefObject<HTMLDivElement>}>
       <h2 style={styles.h2}>Why choose Signinn</h2>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 border border-white/10">
+      <div className="grid grid-cols-2 lg:grid-cols-4 border border-white/10">
         {reasons.map((r, i) => (
           <motion.div 
             key={r.num} 
-            className={`flex flex-col justify-between p-8 md:p-12 min-h-[280px] cursor-pointer border-white/10 border-b lg:border-b-0 ${i === reasons.length - 1 ? '' : 'lg:border-r'}`}
+            className={`flex flex-col justify-between p-6 md:p-12 min-h-[240px] md:min-h-[280px] cursor-pointer border-white/10 ${i < 2 ? 'border-b lg:border-b-0' : ''} ${(i % 2 === 0) ? 'border-r' : ''} lg:border-r ${i === reasons.length - 1 ? 'lg:border-r-0' : ''}`}
             whileHover={{ y: -10, backgroundColor: 'rgba(255,255,255,0.03)' }}
             transition={{ type: 'spring', stiffness: 400, damping: 25 }}
           >

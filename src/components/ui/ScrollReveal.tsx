@@ -3,7 +3,7 @@ import { motion, useInView } from 'motion/react';
 
 export const ScrollReveal = ({ children, delay = 0 }: { children: ReactNode; delay?: number }) => {
   const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: "-100px" });
+  const isInView = useInView(ref, { once: false, margin: "-100px" });
 
   return (
     <motion.div
