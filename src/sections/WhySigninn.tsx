@@ -1,6 +1,7 @@
 import React from 'react';
 import { C } from '../theme';
 import { useFadeIn } from '../hooks/useFadeIn';
+import { motion } from 'motion/react';
 
 export const WhySigninn = () => {
   const ref = useFadeIn();
@@ -14,10 +15,9 @@ export const WhySigninn = () => {
   const styles = {
     section: {
       background: C.black,
-      padding: '160px 5%',
     },
     h2: {
-      fontFamily: 'Glonto, sans-serif',
+      fontFamily: 'var(--font-display)',
       fontWeight: 800,
       fontSize: 'clamp(48px, 6vw, 64px)',
       color: C.white,
@@ -27,27 +27,20 @@ export const WhySigninn = () => {
       letterSpacing: '-0.04em',
     },
     grid: {
-      display: 'grid',
-      gridTemplateColumns: 'repeat(4, 1fr)',
-      border: '1px solid rgba(255,255,255,0.1)',
+      /* replaced by Tailwind */
     },
     card: {
-      padding: '48px 32px',
-      borderRight: '1px solid rgba(255,255,255,0.1)',
-      minHeight: '280px',
-      display: 'flex',
-      flexDirection: 'column' as const,
-      justifyContent: 'space-between',
+      /* replaced by Tailwind */
     },
     num: {
-      fontFamily: 'Glonto, sans-serif',
+      fontFamily: 'var(--font-display)',
       fontWeight: 600,
       fontSize: '11px',
       color: 'rgba(255,255,255,0.3)',
       letterSpacing: '0.1em',
     },
     title: {
-      fontFamily: 'Glonto, sans-serif',
+      fontFamily: 'var(--font-display)',
       fontWeight: 800,
       fontSize: '20px',
       color: C.white,
@@ -56,7 +49,7 @@ export const WhySigninn = () => {
       letterSpacing: '-0.02em',
     },
     body: {
-      fontFamily: 'Glonto, sans-serif',
+      fontFamily: 'var(--font-sans)',
       fontSize: '14px',
       color: 'rgba(255,255,255,0.6)',
       lineHeight: 1.6,
@@ -66,17 +59,22 @@ export const WhySigninn = () => {
   };
 
   return (
-    <section style={styles.section} ref={ref as React.RefObject<HTMLDivElement>}>
+    <section className="section-padding" style={styles.section} ref={ref as React.RefObject<HTMLDivElement>}>
       <h2 style={styles.h2}>Why choose Signinn</h2>
-      <div style={styles.grid} className="hide-mobile">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 border border-white/10">
         {reasons.map((r, i) => (
-          <div key={r.num} style={{ ...styles.card, borderRight: i === reasons.length - 1 ? 'none' : styles.card.borderRight }}>
+          <motion.div 
+            key={r.num} 
+            className={`flex flex-col justify-between p-8 md:p-12 min-h-[280px] cursor-pointer border-white/10 border-b lg:border-b-0 ${i === reasons.length - 1 ? '' : 'lg:border-r'}`}
+            whileHover={{ y: -10, backgroundColor: 'rgba(255,255,255,0.03)' }}
+            transition={{ type: 'spring', stiffness: 400, damping: 25 }}
+          >
             <div>
               <div style={styles.num}>{r.num}/</div>
               <div style={styles.title}>{r.title}</div>
             </div>
             <p style={styles.body}>{r.body}</p>
-          </div>
+          </motion.div>
         ))}
       </div>
     </section>

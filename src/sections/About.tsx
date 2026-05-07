@@ -1,4 +1,4 @@
-﻿import React from 'react';
+import React from 'react';
 import { C } from '../theme';
 import { useFadeIn } from '../hooks/useFadeIn';
 
@@ -20,15 +20,10 @@ export const About = () => {
   const styles = {
     section: {
       background: C.white,
-      padding: '160px 5%',
       borderTop: '1px solid rgba(0,0,0,0.08)',
     },
     layout: {
-      display: 'grid',
-      gridTemplateColumns: '1fr 1fr',
-      gap: '80px',
-      alignItems: 'start',
-      marginBottom: '120px',
+      /* replaced by Tailwind */
     },
     h2: {
       fontFamily: 'var(--font-display)',
@@ -49,7 +44,7 @@ export const About = () => {
     subText: {
       fontFamily: 'var(--font-sans)',
       fontSize: '18px',
-      color: C.black,
+      color: '#4b5563',
       lineHeight: 1.5,
       fontWeight: 400,
       letterSpacing: '-0.01em',
@@ -60,12 +55,7 @@ export const About = () => {
       width: '100%',
     },
     valueRow: {
-      display: 'grid',
-      gridTemplateColumns: '80px 1fr 1.5fr',
-      gap: '40px',
-      padding: '60px 0',
-      borderTop: '1px solid rgba(0,0,0,0.08)',
-      alignItems: 'start',
+      /* replaced by Tailwind */
     },
     cardNum: {
       fontFamily: 'var(--font-sans)',
@@ -88,15 +78,15 @@ export const About = () => {
       fontFamily: 'var(--font-sans)',
       fontSize: '16px',
       lineHeight: 1.6,
-      color: C.textSecondary,
+      color: '#4b5563',
       fontWeight: 400,
       maxWidth: '500px',
     }
   };
 
   return (
-    <section id="about" style={styles.section} ref={ref}>
-      <div style={styles.layout} className="hide-mobile">
+    <section id="about" className="section-padding" style={styles.section} ref={ref}>
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-20 items-start mb-20 md:mb-32">
         <h2 style={styles.h2}>ABOUT THE <br />AGENCY</h2>
         <div style={styles.introBox}>
           <p style={styles.subText}>
@@ -105,9 +95,9 @@ export const About = () => {
         </div>
       </div>
       
-      <div style={styles.valuesList} className="hide-mobile">
+      <div style={styles.valuesList}>
         {values.map((v, i) => (
-          <div key={i} style={styles.valueRow}>
+          <div key={i} className="grid grid-cols-1 md:grid-cols-[80px_1fr_1.5fr] gap-6 md:gap-10 py-10 md:py-16 border-t border-black/10 items-start">
             <div style={styles.cardNum}>({v.num})</div>
             <div style={styles.cardLabel}>{v.title}</div>
             <p style={styles.cardBody}>{v.body}</p>

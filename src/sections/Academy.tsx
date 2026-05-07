@@ -7,16 +7,15 @@ import { useFadeIn } from '../hooks/useFadeIn';
 export const Academy = () => {
   const ref = useFadeIn();
   const courses = [
-    { level: 'BEGINNER', title: 'PROMPT ENGINEERING', body: 'Master the art of crafting precise prompts to unlock the full potential of large language models.', duration: '4 WEEKS' },
-    { level: 'INTERMEDIATE', title: 'AI CONTENTOLOGY', body: 'Learn to create high-quality AI-driven content for videos, posters, and branding.', duration: '6 WEEKS' },
-    { level: 'ADVANCED', title: 'AUTOMATION', body: 'Build complex, autonomous workflows and intelligent systems that run 24/7.', duration: '8 WEEKS' },
-    { level: 'EXPERT', title: 'DEVELOPMENT USING AI', body: 'Deep dive into building full-stack applications and custom agents using modern AI frameworks.', duration: '10 WEEKS' }
+    { title: 'PROMPT ENGINEERING', body: 'Master the art of crafting precise prompts to unlock the full potential of large language models.' },
+    { title: 'AI CONTENTOLOGY', body: 'Learn to create high-quality AI-driven content for videos, posters, and branding.' },
+    { title: 'AUTOMATION', body: 'Build complex, autonomous workflows and intelligent systems that run 24/7.' },
+    { title: 'DEVELOPMENT USING AI', body: 'Deep dive into building full-stack applications and custom agents using modern AI frameworks.' }
   ];
 
   const styles = {
     section: {
       background: C.blue,
-      padding: '160px 5% 180px',
       borderTop: '1px solid rgba(255,255,255,0.1)',
     },
     h2: {
@@ -30,20 +29,10 @@ export const Academy = () => {
       lineHeight: 0.9,
     },
     grid: {
-      display: 'grid',
-      gridTemplateColumns: 'repeat(4, 1fr)',
-      border: '1px solid rgba(0,0,0,0.08)',
+      /* replaced by Tailwind */
     },
     card: {
-      padding: '60px 40px',
-      borderRight: '1px solid rgba(0,0,0,0.08)',
-      display: 'flex',
-      flexDirection: 'column' as const,
-      justifyContent: 'space-between',
-      minHeight: '480px',
-      transition: 'all 0.3s cubic-bezier(0.23, 1, 0.32, 1)',
-      cursor: 'pointer',
-      background: 'transparent',
+      /* replaced by Tailwind */
     },
     level: {
       fontFamily: 'var(--font-sans)',
@@ -77,9 +66,18 @@ export const Academy = () => {
     },
     footerContainer: {
       display: 'flex',
-      justifyContent: 'space-between',
+      justifyContent: 'flex-end',
       alignItems: 'center',
       marginTop: 'auto',
+    },
+    index: {
+      fontFamily: 'var(--font-display)',
+      fontWeight: 600,
+      fontSize: '14px',
+      color: 'rgba(255,255,255,0.4)',
+      marginBottom: '32px',
+      letterSpacing: '0.1em',
+      transition: 'color 0.3s ease',
     },
     duration: {
       fontFamily: 'var(--font-sans)',
@@ -96,15 +94,15 @@ export const Academy = () => {
   };
 
   return (
-    <section id="academy" style={styles.section} ref={ref}>
+    <section id="academy" className="section-padding" style={styles.section} ref={ref}>
       <h2 style={styles.h2}>THE ACADEMY</h2>
-      <div style={styles.grid} className="hide-mobile">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 border border-white/20">
         {courses.map((c, i) => {
           const isLast = i === courses.length - 1;
           return (
             <motion.div 
               key={i} 
-              style={{ ...styles.card, borderRight: isLast ? 'none' : styles.card.borderRight }}
+              className={`flex flex-col justify-between p-10 lg:p-14 min-h-[480px] cursor-pointer bg-transparent border-white/20 border-b lg:border-b-0 ${isLast ? '' : 'lg:border-r'} transition-colors duration-300`}
               whileHover="hover"
               variants={{
                 hover: { 
@@ -115,37 +113,32 @@ export const Academy = () => {
               }}
               transition={{ type: 'spring', stiffness: 300, damping: 20 }}
               onMouseOver={(e) => {
-                const level = e.currentTarget.querySelector('.course-level') as HTMLElement;
+                const index = e.currentTarget.querySelector('.course-index') as HTMLElement;
                 const title = e.currentTarget.querySelector('.course-title') as HTMLElement;
                 const body = e.currentTarget.querySelector('.course-body') as HTMLElement;
-                const dur = e.currentTarget.querySelector('.course-duration') as HTMLElement;
                 const arrow = e.currentTarget.querySelector('.course-arrow') as HTMLElement;
-                if(level) level.style.color = 'rgba(255,255,255,0.6)';
+                if(index) index.style.color = 'rgba(255,255,255,0.8)';
                 if(title) title.style.color = C.white;
                 if(body) body.style.color = 'rgba(255,255,255,0.8)';
-                if(dur) dur.style.color = C.white;
                 if(arrow) arrow.style.color = C.white;
               }}
               onMouseOut={(e) => {
-                const level = e.currentTarget.querySelector('.course-level') as HTMLElement;
+                const index = e.currentTarget.querySelector('.course-index') as HTMLElement;
                 const title = e.currentTarget.querySelector('.course-title') as HTMLElement;
                 const body = e.currentTarget.querySelector('.course-body') as HTMLElement;
-                const dur = e.currentTarget.querySelector('.course-duration') as HTMLElement;
                 const arrow = e.currentTarget.querySelector('.course-arrow') as HTMLElement;
-                if(level) level.style.color = 'rgba(255,255,255,0.7)';
+                if(index) index.style.color = 'rgba(255,255,255,0.4)';
                 if(title) title.style.color = C.white;
                 if(body) body.style.color = 'rgba(255,255,255,0.8)';
-                if(dur) dur.style.color = C.white;
                 if(arrow) arrow.style.color = C.white;
               }}
             >
               <div>
-                <div className="course-level" style={styles.level}>{c.level}</div>
+                <div className="course-index" style={styles.index}>0{i + 1} /</div>
                 <div className="course-title" style={styles.title}>{c.title}</div>
                 <p className="course-body" style={styles.body}>{c.body}</p>
               </div>
               <div style={styles.footerContainer}>
-                <div className="course-duration" style={styles.duration}>{c.duration}</div>
                 <motion.div 
                   className="course-arrow" 
                   style={styles.arrow}
@@ -165,7 +158,7 @@ export const Academy = () => {
                   }}
                   whileHover="hover"
                 >
-                  <ArrowDownRight size={24} />
+                  <ArrowDownRight size={80} strokeWidth={1} />
                 </motion.div>
               </div>
             </motion.div>

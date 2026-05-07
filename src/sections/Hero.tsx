@@ -30,8 +30,7 @@ export const Hero = () => {
   const styles = {
     section: {
       background: C.white,
-      minHeight: '100vh',
-      padding: '0 5% 80px',
+      padding: '10px 5% 10px',
       display: 'flex',
       flexDirection: 'column' as const,
       alignItems: 'center',
@@ -56,19 +55,14 @@ export const Hero = () => {
       marginBottom: '80px',
     },
     subRow: {
-      width: '100%',
-      display: 'flex',
-      justifyContent: 'space-between',
-      alignItems: 'flex-start',
-      padding: '60px 0',
-      borderTop: '1px solid rgba(0,0,0,0.08)',
+      /* replaced by Tailwind */
     },
     leftText: {
       fontFamily: 'var(--font-sans)',
       fontSize: '16px',
       lineHeight: 1.5,
       maxWidth: '540px',
-      color: C.black,
+      color: '#4b5563',
       fontWeight: 400,
       letterSpacing: '0',
     },
@@ -117,7 +111,7 @@ export const Hero = () => {
             </div>
           }
         />
-        <div style={styles.subRow}>
+        <div className="w-full flex flex-col md:flex-row justify-between items-start gap-12 md:gap-0 py-12 md:py-16 border-t border-black/10">
           <p style={styles.leftText}>
             We create effective AI strategies to take your knowledge to new heights. 
             Whether it's mastering workflows or building agents, we know how to do it efficiently.

@@ -13,7 +13,7 @@
   --surface: rgba(255, 255, 255, 0.72);
   --surface-strong: #ffffff;
   --text: #0f172a;
-  --muted: #5b6472;
+  --muted: #4b5563;
   --line: rgba(15, 23, 42, 0.12);
   --accent: #1d4ed8;
   --accent-soft: rgba(29, 78, 216, 0.12);
@@ -192,6 +192,10 @@ select {
 
 .section {
   padding: 0 0 60px 0;
+}
+
+.section-padding {
+  padding: 160px 5%;
 }
 
 .hero {
@@ -674,8 +678,13 @@ select {
 
 @media (max-width: 960px) {
   .nav-links,
-  .topbar-cta {
-    display: none;
+  .topbar-cta,
+  .hide-mobile {
+    display: none !important;
+  }
+  
+  .section-padding {
+    padding: 100px 5% !important;
   }
 
   .hero-grid,
@@ -718,6 +727,10 @@ select {
 @media (max-width: 640px) {
   .container {
     width: min(100% - 28px, 1180px);
+  }
+
+  .section-padding {
+    padding: 80px 5% !important;
   }
 
   .topbar-inner {
@@ -764,4 +777,9 @@ select {
   .footer-socials {
     gap: 14px 18px;
   }
+}
+
+@keyframes marquee { 
+  from { transform: translateX(0); } 
+  to { transform: translateX(-50%); } 
 }

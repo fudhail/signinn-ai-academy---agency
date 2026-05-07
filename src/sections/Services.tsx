@@ -30,14 +30,10 @@ export const Services = () => {
   const styles = {
     section: {
       background: C.white,
-      padding: '160px 5%',
       borderTop: '1px solid rgba(0,0,0,0.08)',
     },
     header: {
-      display: 'grid',
-      gridTemplateColumns: 'minmax(0, 1fr) 1fr',
-      gap: '120px',
-      marginBottom: '160px',
+      /* replaced by Tailwind */
     },
     h2: {
       fontFamily: 'var(--font-display)',
@@ -51,7 +47,7 @@ export const Services = () => {
     headerSub: {
       fontFamily: 'var(--font-sans)',
       fontSize: '18px',
-      color: C.black,
+      color: '#4b5563',
       lineHeight: 1.5,
       fontWeight: 400,
       paddingTop: '32px',
@@ -61,11 +57,6 @@ export const Services = () => {
     card: (t: any) => ({
       background: t.bg,
       border: `1px solid ${t.bg === C.white ? 'rgba(0,0,0,0.08)' : t.bg}`,
-      padding: '100px 80px',
-      display: 'grid',
-      gridTemplateColumns: '1fr 1fr',
-      gap: '60px',
-      minHeight: '440px',
       color: t.color,
     }),
     cardLeft: {
@@ -104,15 +95,15 @@ export const Services = () => {
       fontFamily: 'var(--font-sans)',
       fontSize: '16px',
       lineHeight: 1.6,
-      color: t.sub,
+      color: t.bg === C.white ? '#4b5563' : t.sub,
       alignSelf: 'center',
       fontWeight: 400,
     })
   };
 
   return (
-    <section id="services" style={styles.section}>
-      <div style={styles.header}>
+    <section id="services" className="section-padding" style={styles.section}>
+      <div className="grid grid-cols-1 md:grid-cols-[minmax(0,1fr)_1fr] gap-8 md:gap-32 mb-20 md:mb-40 items-start">
         <h2 style={styles.h2}>OUR <br />SERVICES</h2>
         <p style={styles.headerSub}>
           We deploy specialized AI systems to automate growth, optimize workflows, and scale intelligence.
@@ -122,7 +113,7 @@ export const Services = () => {
       <ScrollStack itemDistance={150} stackPosition="15%" baseScale={0.9} useWindowScroll={true}>
         {servicesData.map((s, i) => (
           <ScrollStackItem key={s.num}>
-            <div style={styles.card(s.theme)}>
+            <div style={styles.card(s.theme)} className="p-8 md:p-20 grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-16 min-h-[440px] items-start md:items-stretch">
               <div style={styles.cardLeft}>
                 <div style={styles.cardNum(s.theme)}>({s.num})</div>
                 <h3 style={styles.cardTitle}>{s.title}</h3>
