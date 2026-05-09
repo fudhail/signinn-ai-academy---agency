@@ -1,9 +1,8 @@
 import React from 'react';
 import { C } from '../theme';
-import { useFadeIn } from '../hooks/useFadeIn';
+import { ScrollReveal } from '../components/ui/ScrollReveal';
 
 export const About = () => {
-  const ref = useFadeIn();
   const values = [
     { 
       num: '01',
@@ -21,9 +20,6 @@ export const About = () => {
     section: {
       background: C.white,
       borderTop: '1px solid rgba(0,0,0,0.08)',
-    },
-    layout: {
-      /* replaced by Tailwind */
     },
     h2: {
       fontFamily: 'var(--font-display)',
@@ -54,9 +50,6 @@ export const About = () => {
       flexDirection: 'column' as const,
       width: '100%',
     },
-    valueRow: {
-      /* replaced by Tailwind */
-    },
     cardNum: {
       fontFamily: 'var(--font-sans)',
       fontSize: '12px',
@@ -85,27 +78,31 @@ export const About = () => {
   };
 
   return (
-    <section id="about" className="section-padding" style={styles.section} ref={ref}>
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-20 items-start mb-20 md:mb-32">
-        <h2 style={styles.h2}>ABOUT THE <br />AGENCY</h2>
-        <div style={styles.introBox}>
-          <p style={styles.subText}>
-            We are a team of professionals united by one goal: to help your business develop and dominate in the modern digital world through AI-first thinking.
-          </p>
+    <section id="about" className="section-padding" style={styles.section}>
+      <ScrollReveal>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-20 items-start mb-20 md:mb-32">
+          <h2 style={styles.h2}>ABOUT THE <br />AGENCY</h2>
+          <div style={styles.introBox}>
+            <p style={styles.subText}>
+              We are a team of professionals united by one goal: to help your business develop and dominate in the modern digital world through AI-first thinking.
+            </p>
+          </div>
         </div>
-      </div>
+      </ScrollReveal>
       
       <div style={styles.valuesList}>
         {values.map((v, i) => (
-          <div key={i} className="grid grid-cols-1 md:grid-cols-[80px_1fr_1.5fr] gap-6 md:gap-10 py-10 md:py-16 border-t border-black/10 items-start">
-            <div style={styles.cardNum}>({v.num})</div>
-            <div style={styles.cardLabel}>{v.title}</div>
-            <p style={styles.cardBody}>{v.body}</p>
-          </div>
+          <ScrollReveal key={i} delay={i * 0.1}>
+            <div className="grid grid-cols-1 md:grid-cols-[80px_1fr_1.5fr] gap-6 md:gap-10 py-10 md:py-16 border-t border-black/10 items-start">
+              <div style={styles.cardNum}>({v.num})</div>
+              <div style={styles.cardLabel}>{v.title}</div>
+              <p style={styles.cardBody}>{v.body}</p>
+            </div>
+          </ScrollReveal>
         ))}
-        {/* Add a bottom border to match the open non-box style */}
         <div style={{ borderTop: '1px solid rgba(0,0,0,0.08)' }}></div>
       </div>
     </section>
   );
 };
+

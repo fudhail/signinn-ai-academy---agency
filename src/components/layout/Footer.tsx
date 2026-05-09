@@ -87,7 +87,7 @@ export const Footer = () => {
       </div>
       <div style={styles.bottom} className="flex flex-col md:flex-row justify-between gap-6 md:gap-0">
         <div>© 2026 SIGNINN AI AGENCY & ACADEMY</div>
-        <div>LEAVE A REQUEST ↗</div>
+        <a href="#contact" style={{...styles.link, marginBottom: 0}}>LEAVE A REQUEST ↗</a>
       </div>
     </footer>
   );

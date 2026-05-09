@@ -164,7 +164,7 @@ select {
   align-items: center;
   justify-content: center;
   gap: 10px;
-  border-radius: 999px;
+  border-radius: 0px;
   padding: 14px 20px;
   border: 1px solid transparent;
   transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease, border-color 0.2s ease;
@@ -172,6 +172,10 @@ select {
 
 .button:hover {
   transform: translateY(-1px);
+}
+
+.button:active {
+  transform: scale(0.96);
 }
 
 .button-primary {
@@ -255,7 +259,7 @@ select {
 .metric {
   border: 1px solid var(--line);
   background: rgba(255, 255, 255, 0.58);
-  border-radius: 24px;
+  border-radius: 0px;
   padding: 18px;
 }
 
@@ -279,7 +283,7 @@ select {
 
 .visual-frame {
   border: 1px solid rgba(15, 23, 42, 0.08);
-  border-radius: 34px;
+  border-radius: 0px;
   background: rgba(255, 255, 255, 0.62);
   box-shadow: var(--shadow);
   padding: 18px;
@@ -365,7 +369,7 @@ select {
 }
 
 .premium-card {
-  border-radius: 28px;
+  border-radius: 0px;
   border: 1px solid var(--line);
   background: rgba(255, 255, 255, 0.72);
   box-shadow: 0 12px 30px rgba(15, 23, 42, 0.05);
@@ -441,7 +445,7 @@ select {
 }
 
 .accordion-item {
-  border-radius: 24px;
+  border-radius: 0px;
   border: 1px solid var(--line);
   background: rgba(255, 255, 255, 0.7);
   overflow: hidden;
@@ -479,7 +483,7 @@ select {
 }
 
 .contact-card {
-  border-radius: 28px;
+  border-radius: 0px;
   border: 1px solid var(--line);
   background: rgba(255, 255, 255, 0.72);
   box-shadow: var(--shadow);
@@ -782,4 +786,53 @@ select {
 @keyframes marquee { 
   from { transform: translateX(0); } 
   to { transform: translateX(-50%); } 
+}
+
+/* Micro-animations */
+.fade-in {
+  opacity: 0;
+  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.fade-in.visible {
+  opacity: 1;
+}
+
+.slide-up {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.slide-up.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+.animate-float {
+  animation: float 4s ease-in-out infinite;
+}
+
+@keyframes pulse-soft {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.8; transform: scale(0.98); }
+}
+
+.animate-pulse-soft {
+  animation: pulse-soft 3s ease-in-out infinite;
+}
+
+/* Mobile-specific tap states */
+@media (max-width: 960px) {
+  .premium-card:active,
+  .accordion-item:active,
+  .contact-card:active {
+    transform: scale(0.985);
+    transition: transform 0.1s ease;
+  }
 }

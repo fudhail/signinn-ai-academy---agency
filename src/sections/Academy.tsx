@@ -104,6 +104,7 @@ export const Academy = () => {
               key={i} 
               className={`flex flex-col justify-between p-4 md:p-10 lg:p-14 min-h-[380px] lg:min-h-[480px] cursor-pointer bg-transparent border-white/20 ${i < 2 ? 'border-b lg:border-b-0' : ''} ${(i % 2 === 0) ? 'border-r' : ''} lg:border-r ${isLast ? 'lg:border-r-0' : ''} transition-colors duration-300`}
               whileHover="hover"
+              whileTap={{ scale: 0.96 }}
               variants={{
                 hover: { 
                   y: -12, 

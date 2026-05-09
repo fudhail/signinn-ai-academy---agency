@@ -112,7 +112,7 @@ export const Hero = () => {
           responsive={true}
           aspectRatio={isMobile ? "1.2 / 1" : "1.8 / 1"}
           centerContent={
-            <div style={{ transform: 'translateY(-10%)' }}>
+            <div className="animate-float" style={{ transform: 'translateY(-10%)' }}>
               <h1 style={{ ...styles.title, marginBottom: 0 }}>
                 <span style={{ color: '#4b5563' }}>LEARN</span><br />
                 <span style={{ color: C.black }}>BUILD</span><br />
@@ -126,13 +126,14 @@ export const Hero = () => {
             We create effective AI strategies to take your knowledge to new heights. 
             Whether it's mastering workflows or building agents, we know how to do it efficiently.
           </p>
-          <button 
+          <a 
+            href="#contact"
             style={styles.ctaBtn} 
             onMouseOver={(e) => (e.currentTarget.style.background = C.blue)} 
             onMouseOut={(e) => (e.currentTarget.style.background = C.black)}
           >
             LEAVE A REQUEST ↗
-          </button>
+          </a>
         </div>
       </div>
     </section>

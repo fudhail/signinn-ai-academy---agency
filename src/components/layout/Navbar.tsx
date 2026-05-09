@@ -84,13 +84,14 @@ export const Navbar = () => {
             </a>
           ))}
         </div>
-        <button 
-          className="px-4 py-2 md:px-7 md:py-3.5 text-[10px] md:text-[11px] bg-black text-white font-[var(--font-display)] font-semibold uppercase tracking-[0.15em] flex items-center gap-2 cursor-pointer transition-colors"
+        <a 
+          href="#contact"
+          className="px-4 py-2 md:px-7 md:py-3.5 text-[10px] md:text-[11px] bg-black text-white font-[var(--font-display)] font-semibold uppercase tracking-[0.15em] flex items-center gap-2 cursor-pointer transition-colors no-underline"
           onMouseOver={(e) => (e.currentTarget.style.background = C.blue)}
           onMouseOut={(e) => (e.currentTarget.style.background = C.black)}
         >
           Get Started →
-        </button>
+        </a>
       </div>
     </nav>
   );
