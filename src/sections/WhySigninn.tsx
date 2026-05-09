@@ -42,7 +42,7 @@ export const WhySigninn = () => {
     title: {
       fontFamily: 'var(--font-display)',
       fontWeight: 800,
-      fontSize: 'clamp(10px, 2.5vw, 20px)',
+      fontSize: 'clamp(8px, 2.8vw, 18px)',
       color: C.white,
       lineHeight: 1.1,
       marginTop: '24px',
@@ -65,7 +65,7 @@ export const WhySigninn = () => {
         {reasons.map((r, i) => (
           <motion.div 
             key={r.num} 
-            className={`flex flex-col justify-between p-6 md:p-12 min-h-[240px] md:min-h-[280px] cursor-pointer border-white/10 ${i < 2 ? 'border-b lg:border-b-0' : ''} ${(i % 2 === 0) ? 'border-r' : ''} lg:border-r ${i === reasons.length - 1 ? 'lg:border-r-0' : ''}`}
+            className={`flex flex-col justify-between p-4 md:p-12 min-h-[240px] md:min-h-[280px] cursor-pointer border-white/10 ${i < 2 ? 'border-b lg:border-b-0' : ''} ${(i % 2 === 0) ? 'border-r' : ''} lg:border-r ${i === reasons.length - 1 ? 'lg:border-r-0' : ''}`}
             whileHover={{ y: -10, backgroundColor: 'rgba(255,255,255,0.03)' }}
             transition={{ type: 'spring', stiffness: 400, damping: 25 }}
           >

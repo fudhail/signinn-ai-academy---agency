@@ -47,7 +47,7 @@ export const Academy = () => {
     title: {
       fontFamily: 'var(--font-display)',
       fontWeight: 800,
-      fontSize: 'clamp(12px, 2.5vw, 30px)',
+      fontSize: 'clamp(10px, 2.5vw, 24px)',
       lineHeight: 1.0,
       marginBottom: '24px',
       textTransform: 'uppercase' as const,
@@ -102,7 +102,7 @@ export const Academy = () => {
           return (
             <motion.div 
               key={i} 
-              className={`flex flex-col justify-between p-6 md:p-10 lg:p-14 min-h-[380px] lg:min-h-[480px] cursor-pointer bg-transparent border-white/20 ${i < 2 ? 'border-b lg:border-b-0' : ''} ${(i % 2 === 0) ? 'border-r' : ''} lg:border-r ${isLast ? 'lg:border-r-0' : ''} transition-colors duration-300`}
+              className={`flex flex-col justify-between p-4 md:p-10 lg:p-14 min-h-[380px] lg:min-h-[480px] cursor-pointer bg-transparent border-white/20 ${i < 2 ? 'border-b lg:border-b-0' : ''} ${(i % 2 === 0) ? 'border-r' : ''} lg:border-r ${isLast ? 'lg:border-r-0' : ''} transition-colors duration-300`}
               whileHover="hover"
               variants={{
                 hover: { 

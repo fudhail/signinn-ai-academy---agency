@@ -1,8 +1,9 @@
 {
-  "name": "react-example",
+  "name": "signinn-ai-academy-agency",
   "private": true,
-  "version": "0.0.0",
-  "homepage": "https://fudhail.github.io/signinn-ai-academy---agency",
+  "version": "1.0.0",
+  "description": "Signinn AI Academy & Agency - Specialized AI systems to automate growth, optimize workflows, and scale intelligence.",
+  "homepage": "https://signinn.in",
   "type": "module",
   "scripts": {
     "dev": "node ./node_modules/vite/bin/vite.js --port=3000 --host=0.0.0.0",

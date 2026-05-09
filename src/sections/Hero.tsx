@@ -8,6 +8,14 @@ export const Hero = () => {
   const cardRef = useRef<HTMLDivElement>(null);
   const [rotate, setRotate] = useState({ x: 0, y: 0 });
   const [scale, setScale] = useState(1);
+  const [isMobile, setIsMobile] = useState(false);
+
+  React.useEffect(() => {
+    const check = () => setIsMobile(window.innerWidth < 768);
+    check();
+    window.addEventListener('resize', check);
+    return () => window.removeEventListener('resize', check);
+  }, []);
 
   const handleMouseMove = (e: React.MouseEvent) => {
     if (!cardRef.current) return;
@@ -47,7 +55,7 @@ export const Hero = () => {
     title: {
       fontFamily: 'var(--font-display)',
       fontWeight: 800,
-      fontSize: 'clamp(48px, 14vw, 150px)',
+      fontSize: 'clamp(54px, 16vw, 150px)',
       lineHeight: 0.8,
       letterSpacing: '-0.06em',
       color: C.blue,
@@ -96,13 +104,13 @@ export const Hero = () => {
             "assets/orbit/hero6.jpg",
           ]}
           shape="ellipse"
-          radiusX={650}
-          radiusY={280}
+          radiusX={isMobile ? 900 : 650}
+          radiusY={isMobile ? 480 : 280}
           rotation={-5}
           duration={30}
-          itemSize={140}
+          itemSize={isMobile ? 200 : 140}
           responsive={true}
-          aspectRatio="1.8 / 1"
+          aspectRatio={isMobile ? "1.2 / 1" : "1.8 / 1"}
           centerContent={
             <div style={{ transform: 'translateY(-10%)' }}>
               <h1 style={{ ...styles.title, marginBottom: 0 }}>
